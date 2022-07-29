@@ -86,25 +86,32 @@ export class AppComponent implements OnInit {
     console.log(i, this.arr[i].email);
   }
   removeuser(i: number) {
-    alert(`This action will remove a user with this email: ${this.arr[i].email}
-
-    Are you sure?`);
-    this.display = false;
-    console.log(i);
-    console.log(this.arr2);
-    for (let j = 0; j < this.arr.length; j++) {
-      this.arr2 = this.arr;
-    }
-    console.log(this.arr2);
-
-    this.arr = [];
-    for (let j = 0; j < this.arr2.length; j++) {
-      if (j !== i) {
-        this.arr.push(this.arr2[j]);
-        console.log(this.arr2[j]);
+    let txt;
+    if (
+      confirm(
+        `This action will remove a user with this email: ${this.arr[i].email}`
+      )
+    ) {
+      this.display = false;
+      console.log(i);
+      console.log(this.arr2);
+      for (let j = 0; j < this.arr.length; j++) {
+        this.arr2 = this.arr;
       }
+      console.log(this.arr2);
+
+      this.arr = [];
+      for (let j = 0; j < this.arr2.length; j++) {
+        if (j !== i) {
+          this.arr.push(this.arr2[j]);
+          console.log(this.arr2[j]);
+        }
+      }
+      this.arr2 = [];
+      console.log(this.arr2);
+    } else {
+      // txt = 'You pressed Cancel!';
     }
-    this.arr2 = [];
-    console.log(this.arr2);
+    if (txt !== undefined) document.getElementById('demo').innerHTML = txt;
   }
 }
