@@ -86,6 +86,9 @@ export class AppComponent implements OnInit {
     console.log(i, this.arr[i].email);
   }
   removeuser(i: number) {
+    alert(`This action will remove a user with this email: ${this.arr[i].email}
+
+    Are you sure?`);
     this.display = false;
     console.log(i);
     console.log(this.arr2);
