@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
         ]),
         phoneNumber: new FormControl(null, [
           Validators.required,
-          Validators.pattern('^[(+995)d{9}]*$'),
+          Validators.pattern('(\\+995\\d{9})?'),
           Validators.minLength(13),
           Validators.maxLength(13),
         ]),
